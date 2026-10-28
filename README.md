@@ -64,3 +64,4 @@ Bambu also does not build the adder from full adders. It infers a single `+`, an
 ## Tools
 
 Icarus Verilog, GTKWave, Bambu 0.9.7, Ubuntu
+![waveform](docs/waveform.png)
