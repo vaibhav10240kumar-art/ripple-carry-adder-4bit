@@ -1,0 +1,67 @@
+OpenSTA 3.1.0 a50641666c Copyright (c) 2026, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+Startpoint: cin (input port clocked by vclk)
+Endpoint: cout (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+   Delay     Time   Description
+-----------------------------------------------------------
+   0.000    0.000   clock vclk (rise edge)
+   0.000    0.000   clock network delay (ideal)
+   0.000    0.000 v input external delay
+   0.000    0.000 v cin (in)
+   0.372    0.372 v _21_/X (sky130_fd_sc_hd__maj3_1)
+   0.259    0.631 ^ _22_/Y (sky130_fd_sc_hd__a21boi_0)
+   0.153    0.785 v _23_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.413    1.197 v _24_/X (sky130_fd_sc_hd__maj3_1)
+   0.000    1.197 v cout (out)
+            1.197   data arrival time
+
+   5.000    5.000   clock vclk (rise edge)
+   0.000    5.000   clock network delay (ideal)
+   0.000    5.000   clock reconvergence pessimism
+   0.000    5.000   output external delay
+            5.000   data required time
+-----------------------------------------------------------
+            5.000   data required time
+           -1.197   data arrival time
+-----------------------------------------------------------
+            3.803   slack (MET)
+
+
+worst slack max 3.80
+Startpoint: cin (input port clocked by vclk)
+Endpoint: cout (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+   Delay     Time   Description
+-----------------------------------------------------------
+   0.000    0.000   clock vclk (rise edge)
+   0.000    0.000   clock network delay (ideal)
+   0.000    0.000 v input external delay
+   0.000    0.000 v cin (in)
+   0.372    0.372 v _21_/X (sky130_fd_sc_hd__maj3_1)
+   0.259    0.631 ^ _22_/Y (sky130_fd_sc_hd__a21boi_0)
+   0.153    0.785 v _23_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.413    1.197 v _24_/X (sky130_fd_sc_hd__maj3_1)
+   0.000    1.197 v cout (out)
+            1.197   data arrival time
+
+   5.000    5.000   clock vclk (rise edge)
+   0.000    5.000   clock network delay (ideal)
+   0.000    5.000   clock reconvergence pessimism
+   0.000    5.000   output external delay
+            5.000   data required time
+-----------------------------------------------------------
+            5.000   data required time
+           -1.197   data arrival time
+-----------------------------------------------------------
+            3.803   slack (MET)
+
+

@@ -1,2 +1,5 @@
 sim
 *.vcd
+sta/netlist.v
+sta/sky130_tt.lib
+sta/sky130_tt.lib

@@ -1,0 +1,7 @@
+read_verilog rtl/full_adder.v
+read_verilog rtl/ripple_carry_adder_4bit.v
+synth -top ripple_carry_adder_4bit -flatten
+abc -liberty sta/sky130_tt.lib
+opt_clean
+write_verilog -noattr sta/netlist.v
+stat -liberty sta/sky130_tt.lib
