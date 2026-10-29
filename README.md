@@ -65,3 +65,30 @@ Bambu also does not build the adder from full adders. It infers a single `+`, an
 
 Icarus Verilog, GTKWave, Bambu 0.9.7, Ubuntu
 ![waveform](docs/waveform.png)
+
+## Static timing analysis
+
+I synthesized the adder with Yosys against the sky130_fd_sc_hd library (tt, 25 C, 1.8 V) and timed it with OpenSTA. The design has no clock, so the SDC uses a virtual clock and measures the input-to-output delay. Constraints are in `sta/constraints.sdc`.
+
+The library file is not in the repo (it is several MB). Download it first:
+
+```bash
+wget -O sta/sky130_tt.lib https://raw.githubusercontent.com/efabless/skywater-pdk-libs-sky130_fd_sc_hd/master/timing/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+Then run:
+
+```bash
+yosys -s sta/synth.ys
+sta -no_init -exit sta/run_sta.tcl
+```
+
+Results (full report in `docs/sta_report.txt`):
+
+- Critical path: `cin` to `cout` (four cells: maj3, a21boi, o21ai, maj3)
+- Arrival time: 1.197 ns
+- Slack at a 5 ns target: +3.803 ns (met)
+- Cell area: 116.361600
+
+This is a pre-layout estimate with no wire parasitics.
+The synthesized netlist does not keep the four-full-adder structure from the RTL. abc restructured the logic, and the carry path ended up as four cells, so the timing above is for the optimized gate-level design rather than a literal chain of four full adders. The critical path still goes from `cin` to `cout`, which is the carry chain.
